@@ -1,0 +1,74 @@
+
+// 이 모듈에 적용할 플러그인들
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+}
+
+// android 에 대한 구체적인 빌드 옵션
+android {
+
+    // 컴파일할 sdk버전
+    compileSdk 32
+
+    // 모든 build variants에 대한 기본 셋팅
+    // -> 이게 buildType이랑, flavor의 차이점에 대해서도 알아야겠네.
+    // -> defaultConfig에 대한것들은 flavor에서 따로 override할 수 있다는듯.
+    // 또, 이후에 빌드되서 flavor+buildtype으로 조합된다는듯하다.
+    defaultConfig {
+
+        // 앱 게시 할때 사용할 고유id
+        // 웹뷰를 쓰면, 패키지명이랑 어플리케이션 id를 같이하는게 좋다는거 같네? 이것에 대한 이슈가 있는듯하다.
+        applicationId "com.example.pokedex_meltdown"
+
+        // 설치가능한 최소sdk
+        minSdk 21
+
+        // 테스트된 sdk버전
+        targetSdk 32
+
+        // 버전코드를 숫자로
+        versionCode 1
+
+        // 버전 네이밍을 유저 친화적으로 문자로.
+        versionName "1.0"
+
+        // 기본 계측 테스트(instrumentation test)로 지정
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        // instrumentation test시, applicationId를 따로 주는 옵션 -> testApplicationId
+    }
+
+    // 다양한 빌드 타입을 구성, 보통 debug, release를 둔다.
+    // debug는 따로 작성안해도 알아서 암시적으로 돌아간다는듯함.
+    buildTypes {
+        release {
+            minifyEnabled false // true로 두면 코드 축소됨.
+
+            // 프로가드 설정
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+// 모듈 수준 빌드에 적용될 디펜던시
+dependencies {
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.5.1'
+    implementation 'com.google.android.material:material:1.6.1'
+
+    // implementation 앞에 prefix로 test, androidTest붙는거는
+    // prefix이름과 같은 해당 buildType에서만 dependency로 적용된다함.
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+}
