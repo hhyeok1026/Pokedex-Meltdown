@@ -1,4 +1,5 @@
 
+import com.example.pokedex_meltdown.Version
 import com.example.pokedex_meltdown.Configuration
 
 plugins {
@@ -48,7 +49,8 @@ android {
 }
 
 dependencies {
-    implementation("androidx.core:core-ktx:1.7.0")
+    //implementation("androidx.core:core-ktx:1.7.0")
+    implementation("androidx.core:core-ktx:${Version.CORE_KTX}")
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.6.1")
 

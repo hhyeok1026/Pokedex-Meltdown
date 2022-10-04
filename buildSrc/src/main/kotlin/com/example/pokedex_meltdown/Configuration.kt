@@ -10,3 +10,7 @@ object Configuration {
     const val versionName = "$majorVersion.$minorVersion.$patchVersion"
     const val versionCode = 1
 }
+
+object Version {
+    const val CORE_KTX = "1.7.0"
+}
