@@ -10,10 +10,10 @@ android {
     defaultConfig {
         applicationId = "com.example.pokedex_meltdown"
         //minSdk = 21
-        minSdk = rootProject.extra["sdkVersion"] as Int
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        minSdk = rootProject.extra["minSdk"] as Int
+        targetSdk = rootProject.extra["targetSdk"] as Int
+        versionCode = rootProject.extra["versionCode"] as Int
+        versionName = rootProject.extra["versionName"] as String
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
