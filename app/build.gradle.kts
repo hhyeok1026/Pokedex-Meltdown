@@ -4,6 +4,8 @@ plugins {
     id("org.jetbrains.kotlin.android")
 }
 
+//val corektxVersion = rootProject.extra["core-ktxVersion"]
+
 android {
     compileSdk = 32
 
@@ -46,6 +48,8 @@ android {
 
 dependencies {
     implementation("androidx.core:core-ktx:1.7.0")
+    //implementation("androidx.core:core-ktx:${rootProject.extra["core-ktxVersion"]}")
+    //implementation("androidx.core:core-ktx:${corektxVersion}")
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.6.1")
 

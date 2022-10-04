@@ -26,6 +26,7 @@ buildscript  {
         set("patchVersion", patchVersion)
         set("versionName", versionName)
         set("versionCode", versionCode)
+        set("core-ktxVersion", "1.7.0")
     }
 }
 
