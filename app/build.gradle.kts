@@ -1,19 +1,22 @@
 
+import com.example.pokedex_meltdown.Configuration
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
 }
 
 android {
-    compileSdk = 32
+    compileSdk = Configuration.compileSdk
 
     defaultConfig {
         applicationId = "com.example.pokedex_meltdown"
         //minSdk = 21
-        minSdk = rootProject.extra["sdkVersion"] as Int
-        targetSdk = 32
-        versionCode = 1
-        versionName = "1.0"
+        //minSdk = rootProject.extra["sdkVersion"] as Int
+        minSdk = Configuration.minSdk
+        targetSdk = Configuration.targetSdk
+        versionCode = Configuration.versionCode
+        versionName = Configuration.versionName
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
