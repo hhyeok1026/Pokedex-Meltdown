@@ -1,9 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application") version "7.2.1" apply false
+    /*id("com.android.application") version "7.2.1" apply false
     id("com.android.library") version "7.2.1" apply false
-    id("org.jetbrains.kotlin.android") version "1.6.21" apply false
+    id("org.jetbrains.kotlin.android") version "1.6.21" apply false*/
+
 }
 
 tasks.register("clean", Delete::class) {
@@ -11,6 +13,18 @@ tasks.register("clean", Delete::class) {
 }
 
 buildscript  {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+
+    dependencies {
+        classpath(libs.agp)
+        classpath(libs.kotlin.gradlePlugin)
+        classpath(libs.hilt.plugin)
+    }
+
     val majorVersion = 0
     val minorVersion = 0
     val patchVersion = 1

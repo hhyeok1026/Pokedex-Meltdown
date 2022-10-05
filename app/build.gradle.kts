@@ -1,7 +1,11 @@
 
+@Suppress("DSL_SCOPE_VIOLATION")
 plugins {
-    id("com.android.application")
-    id("org.jetbrains.kotlin.android")
+    /*id("com.android.application")
+    id("org.jetbrains.kotlin.android")*/
+
+    id(libs.plugins.android.application.get().pluginId)
+    id(libs.plugins.kotlin.android.get().pluginId)
 }
 
 android {
@@ -41,10 +45,13 @@ android {
     }
     kotlinOptions {
         jvmTarget = "1.8"
+        //jvmTarget = libs.versions.jvmTarget.toString //이거 빌드에러남.
+        //jvmTarget = "${libs.versions.jvmTarget}" // 이거도 안됨.
     }
 }
 
 dependencies {
+    /*
     implementation("androidx.core:core-ktx:1.7.0")
     implementation("androidx.appcompat:appcompat:1.5.1")
     implementation("com.google.android.material:material:1.6.1")
@@ -52,4 +59,13 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.3")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.4.0")
+    */
+
+    implementation(libs.androidx.core)
+    implementation(libs.androidx.appcompat)
+    implementation(libs.material)
+
+    testImplementation(libs.junit)
+    androidTestImplementation(libs.androidx.junit)
+    androidTestImplementation(libs.androidx.espresso)
 }
