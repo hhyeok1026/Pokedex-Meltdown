@@ -4,8 +4,17 @@ plugins {
     /*id("com.android.application")
     id("org.jetbrains.kotlin.android")*/
 
+    /*
     id(libs.plugins.android.application.get().pluginId)
     id(libs.plugins.kotlin.android.get().pluginId)
+    */
+
+    alias(libs.plugins.android.application)
+    alias(libs.plugins.kotlin.android)
+    alias(libs.plugins.hilt.android)
+
+    id("kotlin-kapt")
+
 }
 
 android {
@@ -65,7 +74,22 @@ dependencies {
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
 
+
+    // Hilt
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.android.compiler)
+
+    // Hilt test
+    androidTestImplementation(libs.hilt.android.testing)
+    kaptAndroidTest(libs.hilt.android.compiler)
+    //testImplementation("com.google.dagger:hilt-android-testing:2.44")
+    //kaptTest("com.google.dagger:hilt-android-compiler:2.44")
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso)
+}
+
+kapt {
+    correctErrorTypes = true
 }

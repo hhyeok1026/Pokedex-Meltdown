@@ -5,11 +5,13 @@ plugins {
     /*id("com.android.application") version "7.2.1" apply false
     id("com.android.library") version "7.2.1" apply false
     id("org.jetbrains.kotlin.android") version "1.6.21" apply false*/
+    //alias(libs.plugins.spotless)
 
-}
-
-tasks.register("clean", Delete::class) {
-    delete(rootProject.buildDir)
+    // plugin으로 작성한거만 되는듯.
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.android.library) apply false
+    alias(libs.plugins.kotlin.android) apply false
+    alias(libs.plugins.hilt.android) apply false
 }
 
 buildscript  {
@@ -20,9 +22,16 @@ buildscript  {
     }
 
     dependencies {
-        classpath(libs.agp)
-        classpath(libs.kotlin.gradlePlugin)
-        classpath(libs.hilt.plugin)
+
+        // plugin에 작성된거는 안되는듯.
+        //classpath(libs.plugins.android.application)
+        //classpath(libs.plugins.android.library)
+        //classpath(libs.plugins.kotlin.android)
+
+        // 이거는 가능.
+        //classpath(libs.agp)
+        //classpath(libs.kotlin.gradlePlugin)
+        //classpath(libs.hilt.plugin)
     }
 
     val majorVersion = 0
@@ -41,6 +50,10 @@ buildscript  {
         set("versionName", versionName)
         set("versionCode", versionCode)
     }
+}
+
+tasks.register("clean", Delete::class) {
+    delete(rootProject.buildDir)
 }
 
 /*
