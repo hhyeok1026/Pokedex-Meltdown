@@ -8,6 +8,17 @@ junit = "4.13.2"
 androidxTestJunit = "1.1.3"
 espresso = "3.4.0"
 hilt = "2.44"
+transformationLayout = "1.1.1"
+bindables = "1.1.0"
+androidxFragment = "1.5.1"
+timber = "5.0.1"
+baseAdapter = "1.0.4"
+whatIf = "1.1.1"
+glide = "4.13.2"
+glidePalette = "2.1.2"
+androidRibbon = "1.0.4"
+progressView = "1.1.3"
+rainbow = "1.0.3"
 
 #내가 따로 추가한거
 androidxCore = "1.7.0"
@@ -32,6 +43,19 @@ hilt-android = { id = "com.google.dagger.hilt.android", version.ref = "hilt"}
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "androidxAppcompat" }
 androidx-core = { module = "androidx.core:core-ktx", version.ref = "androidxCore" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
+transformationLayout = { module = "com.github.skydoves:transformationlayout", version.ref = "transformationLayout" }
+bindables = { module = "com.github.skydoves:bindables", version.ref = "bindables" }
+androidx-fragment = { module = "androidx.fragment:fragment-ktx", version.ref = "androidxFragment" }
+timber = { module = "com.jakewharton.timber:timber", version.ref = "timber" }
+baseAdapter = { module = "com.github.skydoves:baserecyclerviewadapter", version.ref = "baseAdapter" }
+whatif = { module = "com.github.skydoves:whatif", version.ref = "whatIf" }
+
+glide = { module = "com.github.bumptech.glide:glide", version.ref = "glide" }
+glide-palette = { module = "com.github.florent37:glidepalette", version.ref = "glidePalette" }
+
+rainbow = { module = "com.github.skydoves:rainbow", version.ref = "rainbow" }
+androidRibbon = { module = "com.github.skydoves:androidribbon", version.ref = "androidRibbon" }
+progressView = { module = "com.github.skydoves:progressview", version.ref = "progressView" }
 
 # Hilt
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt"}

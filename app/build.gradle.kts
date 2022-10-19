@@ -47,11 +47,18 @@ android {
             )
         }*/
     }
-
+    buildFeatures {
+        dataBinding = true
+    }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+
+    hilt {
+        enableAggregatingTask = true
+    }
+
     kotlinOptions {
         jvmTarget = "1.8"
         //jvmTarget = libs.versions.jvmTarget.toString //이거 빌드에러남.
@@ -73,7 +80,17 @@ dependencies {
     implementation(libs.androidx.core)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-
+    implementation(libs.transformationLayout)
+    implementation(libs.bindables) // data binding skydove
+    implementation(libs.androidx.fragment)
+    implementation(libs.timber)
+    implementation(libs.whatif) // skydove
+    implementation(libs.baseAdapter) // skydove
+    implementation(libs.rainbow) // skydove
+    implementation(libs.androidRibbon) // skydove
+    implementation(libs.progressView) // skydove
+    implementation(libs.glide) // bumptech
+    implementation(libs.glide.palette) // florent37
 
     // Hilt
     implementation(libs.hilt.android)
