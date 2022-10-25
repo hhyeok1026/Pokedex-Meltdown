@@ -13,7 +13,7 @@ object RecyclerViewBinding {
     @BindingAdapter("adapter")
     fun bindAdapter(view: RecyclerView, adapter: RecyclerView.Adapter<*>) {
         view.adapter = adapter.apply {
-            stateRestorationPolicy = RecyclerView.Adapter.StateResorationPolicy.PREVENT_WHEN_EMPTY
+            stateRestorationPolicy = RecyclerView.Adapter.StateRestorationPolicy.PREVENT_WHEN_EMPTY
         }
     }
 

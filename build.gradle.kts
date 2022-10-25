@@ -12,10 +12,15 @@ plugins {
     alias(libs.plugins.android.library) apply false
     alias(libs.plugins.kotlin.android) apply false
     alias(libs.plugins.hilt.android) apply false
+
+    // 보류
+    alias(libs.plugins.kotlin.kapt) apply false
+    alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.ksp) apply false
 }
 
 buildscript  {
-    repositories {
+   /* repositories {
         google()
         mavenCentral()
         gradlePluginPortal()
@@ -33,7 +38,7 @@ buildscript  {
         //classpath(libs.kotlin.gradlePlugin)
         //classpath(libs.hilt.plugin)
     }
-
+*/
     val majorVersion = 0
     val minorVersion = 0
     val patchVersion = 1
@@ -50,10 +55,26 @@ buildscript  {
         set("versionName", versionName)
         set("versionCode", versionCode)
     }
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+    }
 }
 
 tasks.register("clean", Delete::class) {
     delete(rootProject.buildDir)
+}
+
+subprojects {
+    tasks.withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile>().all {
+        kotlinOptions.jvmTarget = JavaVersion.VERSION_1_8.toString()
+        kotlinOptions.freeCompilerArgs += listOf(
+            "-Xopt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+            "-Xopt-in=kotlin.time.ExperimentalTime",
+        )
+    }
 }
 
 /*

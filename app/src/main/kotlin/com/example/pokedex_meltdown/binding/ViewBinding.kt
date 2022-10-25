@@ -11,10 +11,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.databinding.BindingAdapter
 import com.bumptech.glide.Glide
-import com.github.florent37.glidepalette.BitmapPalette
-import com.github.florent37.glidepalette.GlidePalette
+import com.example.pokedex_meltdown.core.model.PokemonInfo
+/*import com.github.florent37.glidepalette.BitmapPalette
+import com.github.florent37.glidepalette.GlidePalette*/
 import com.example.pokedex_meltdown.utils.PokemonTypeUtils
 import com.example.pokedex_meltdown.utils.SpacesItemDecoration
+import com.github.florent37.glidepalette.BitmapPalette
+import com.github.florent37.glidepalette.GlidePalette
 import com.google.android.material.card.MaterialCardView
 import com.skydoves.androidribbon.RibbonRecyclerView
 import com.skydoves.androidribbon.ribbonView
@@ -48,7 +51,8 @@ object ViewBinding {
                             paletteCard.setCardBackgroundColor(rgb)
                         }
                     }.crossfade(true)
-            ).into(view)
+            )
+            .into(view)
     }
 
     @JvmStatic
@@ -80,7 +84,8 @@ object ViewBinding {
                             }
                         }
                     }.crossfade(true)
-            ).into(view)
+            )
+            .into(view)
     }
 
     @JvmStatic

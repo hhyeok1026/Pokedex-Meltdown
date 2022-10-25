@@ -3,7 +3,10 @@ package com.example.pokedex_meltdown.ui.main
 import androidx.annotation.MainThread
 import androidx.databinding.Bindable
 import androidx.lifecycle.viewModelScope
+import com.example.pokedex_meltdown.core.data.repository.MainRepository
+import com.example.pokedex_meltdown.core.model.Pokemon
 import com.skydoves.bindables.BindingViewModel
+import com.skydoves.bindables.asBindingProperty
 import com.skydoves.bindables.bindingProperty
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow

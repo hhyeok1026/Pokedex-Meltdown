@@ -64,7 +64,7 @@
             android:id="@+id/progressbar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:gone="@{!vm.loading && adapter.submitted}"
+            app:gone="@{!vm.loading &amp;&amp; adapter.submitted}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

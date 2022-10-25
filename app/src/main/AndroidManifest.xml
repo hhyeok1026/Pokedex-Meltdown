@@ -15,6 +15,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.PokedexMeltdown"
         tools:targetApi="31">
+        <profileable
+            android:shell="true"
+            tools:targetApi="q" />
 
         <activity
             android:name=".ui.main.MainActivity"
@@ -27,17 +30,19 @@
             </intent-filter>
         </activity>
 
+        <activity
+            android:name=".ui.details.DetailActivity"
+            android:launchMode="singleTop" />
+
         <provider
             android:name="androidx.startup.InitializationProvider"
             android:authorities="com.example.pokedex_meltdown.androidx-startup"
             android:exported="false"
             tools:node="merge">
-
             <meta-data
                 android:name="com.example.pokedex_meltdown.initializer.TimberInitializer"
                 android:value="androidx.startup" />
         </provider>
-
     </application>
 
 </manifest>
